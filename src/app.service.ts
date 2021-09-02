@@ -7,7 +7,7 @@ export class AppService {
   private readonly logger = new Logger('AppService');
 
   getHello(): string {
-    this.logger.verbose('getHello method was called!');
+    this.logger.warn({user: 'Abdel Raoof', service: 'AppService'}, '{user} access the service at {service}');
     return 'Hello World!';
   }
 

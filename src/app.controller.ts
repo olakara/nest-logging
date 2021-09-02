@@ -1,5 +1,6 @@
-import { Controller, Get, Logger } from '@nestjs/common';
+import { Controller, Get, Logger} from '@nestjs/common';
 import { AppService } from './app.service';
+
 
 @Controller()
 export class AppController {
@@ -10,13 +11,14 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    this.logger.log('Get Hello called!');
+    
+    this.logger.log('Get Hello called!', 'AppController');
     return this.appService.getHello();
   }
 
   @Get('warn')
   getWarning(): string {
-    this.logger.warn('Get Warning called!');
+    this.logger.warn('Get Warning called!', 'AppController');
     return this.appService.getHello();
   }
 
