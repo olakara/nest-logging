@@ -11,7 +11,7 @@ export class AppController {
 
   @Get()
   getHello(): string {    
-    this.logger.log('A log without context','AppController');
+    this.logger.log('A log without context');
     this.logger.log('A log with context', 'AppController');
     this.logger.warn('English hello {lang}',{ lang: 'en', context: 'Sample Context' });    
     return new Date().toISOString();

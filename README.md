@@ -1,6 +1,16 @@
 ## Description
 
-[Nest](https://github.com/nestjs/nest) application with logging. Refer to the seq-logging branch for how to log to Seq.
+[Nest](https://github.com/nestjs/nest) application with logging. 
+
+Steps:
+
+1. Create an instance of BunyanLoggerService with Seq as custom stream in main.ts file
+2. Inject the Logger from @nestjs/common and log your messages
+3. Example of a log with data:
+
+```
+this.logger.warn('{user} tried access the {service} service with an expired key!',{ user: 'E73882', service: 'PurchaseOrder'});
+```
 
 ## Installation
 
