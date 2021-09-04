@@ -10,16 +10,24 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    
-    this.logger.log('Get Hello called!', 'AppController');
-    return this.appService.getHello();
+  getHello(): string {    
+    this.logger.log('A log without context','AppController');
+    this.logger.log('A log with context', 'AppController');
+    this.logger.warn('English hello {lang}',{ lang: 'en', context: 'Sample Context' });    
+    return new Date().toISOString();
   }
 
   @Get('warn')
   getWarning(): string {
-    this.logger.warn('Get Warning called!', 'AppController');
+    this.logger.warn('{user} tried access the {service} service with an expired key!',{ user: 'E73882', service: 'PurchaseOrder'});
     return this.appService.getHello();
   }
+
+  @Get('error')
+  getError(): string {
+    this.logger.error(['{user} access the service at {service}',{ user: 'Aro', service: 'XYZ'}]);
+    return this.appService.getHello();
+  }
+
 
 }
